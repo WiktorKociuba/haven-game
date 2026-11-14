@@ -1,9 +1,10 @@
 using UnityEngine;
 
-public float durationOfPress;
-public combinedTileManager[] combinedTiles;
+
 public class lever : MonoBehaviour
 {
+    public float durationOfPress;
+    public combinedTileManager[] combinedTiles;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
