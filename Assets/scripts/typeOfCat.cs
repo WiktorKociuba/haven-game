@@ -15,6 +15,9 @@ public class typeOfCat : MonoBehaviour
     public int gracePeriodDuration = 2;
     public Slider gracePeriodSlider;
     private float timeLeft = 0;
+    public Slider shadowSlider;
+    public float shadowChangeDuration = 20;
+    private float shadowTimeLeft = 0;
     void Start()
     {
         playerType.isLight = true;
@@ -24,6 +27,10 @@ public class typeOfCat : MonoBehaviour
     private void onButtonPressed(InputAction.CallbackContext context){
         if(playerType.isGracePeriod == false){
             playerType.isLight = !playerType.isLight;
+            if(playerType.isLight == false)
+            {
+                StartCoroutine(shadowTimer());
+            }
             playerType.isGracePeriod = true;
             StartCoroutine(gracePeriodTimer());
         }
@@ -33,14 +40,28 @@ public class typeOfCat : MonoBehaviour
         yield return new WaitForSeconds(gracePeriodDuration);
         gracePeriodFinished();
     }
+    private IEnumerator shadowTimer()
+    {
+        shadowTimeLeft = shadowChangeDuration;
+        yield return new WaitForSeconds(shadowChangeDuration);
+        playerType.isLight = !playerType.isLight;
+        playerType.isGracePeriod = true;
+        StartCoroutine(gracePeriodTimer());
+    }
     private void gracePeriodFinished(){
         playerType.isGracePeriod = false;
     }
+
     void Update()
     {
         if(timeLeft>=0){
             timeLeft -= Time.deltaTime;
             gracePeriodSlider.value = timeLeft/gracePeriodDuration;
+        }
+        if (shadowTimeLeft >= 0)
+        {
+            shadowTimeLeft -= Time.deltaTime;
+            shadowSlider.value = shadowTimeLeft/shadowChangeDuration;
         }
     }
 }
