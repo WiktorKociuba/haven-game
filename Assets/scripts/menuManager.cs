@@ -11,4 +11,8 @@ public class menuManager : MonoBehaviour
         }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+    public void playGame()
+    {
+        SceneManager.LoadScene("tutorial");
+    }
 }
