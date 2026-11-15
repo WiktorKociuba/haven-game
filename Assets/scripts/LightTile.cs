@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LightTile : MonoBehaviour
 {
@@ -7,6 +8,13 @@ public class LightTile : MonoBehaviour
     void Start()
     {
         
+    }
+     private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Player")){
+            Debug.Log("trigger");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
     // Update is called once per frame
     void Update()

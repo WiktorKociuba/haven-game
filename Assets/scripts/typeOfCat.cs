@@ -18,6 +18,12 @@ public class typeOfCat : MonoBehaviour
     public Slider shadowSlider;
     public float shadowChangeDuration = 20;
     private float shadowTimeLeft = 0;
+    private bool lastChanged = false;
+    public GameObject whitePaw1;
+    public GameObject whitePaw2;
+    public GameObject blackPaw1;
+    public GameObject blackPaw2;
+    private Coroutine shadowRoutine;
     void Start()
     {
         playerType.isLight = true;
@@ -27,9 +33,16 @@ public class typeOfCat : MonoBehaviour
     private void onButtonPressed(InputAction.CallbackContext context){
         if(playerType.isGracePeriod == false){
             playerType.isLight = !playerType.isLight;
+            lastChanged = true;
             if(playerType.isLight == false)
             {
-                StartCoroutine(shadowTimer());
+                shadowRoutine = StartCoroutine(shadowTimer());
+            }
+            else
+            {
+                StopCoroutine(shadowRoutine);
+                shadowRoutine = null;
+                shadowTimeLeft = 0;
             }
             playerType.isGracePeriod = true;
             StartCoroutine(gracePeriodTimer());
@@ -46,6 +59,7 @@ public class typeOfCat : MonoBehaviour
         yield return new WaitForSeconds(shadowChangeDuration);
         playerType.isLight = !playerType.isLight;
         playerType.isGracePeriod = true;
+        lastChanged = true;
         StartCoroutine(gracePeriodTimer());
     }
     private void gracePeriodFinished(){
@@ -62,6 +76,24 @@ public class typeOfCat : MonoBehaviour
         {
             shadowTimeLeft -= Time.deltaTime;
             shadowSlider.value = shadowTimeLeft/shadowChangeDuration;
+        }
+        if (lastChanged)
+        {
+            if (playerType.isLight)
+            {
+                whitePaw1.SetActive(true);
+                blackPaw1.SetActive(false);
+                whitePaw2.SetActive(true);
+                blackPaw2.SetActive(false);
+            }
+            else
+            {
+                whitePaw1.SetActive(false);
+                blackPaw1.SetActive(true);
+                whitePaw2.SetActive(false);
+                blackPaw2.SetActive(true);
+            }
+            lastChanged = false;
         }
     }
 }

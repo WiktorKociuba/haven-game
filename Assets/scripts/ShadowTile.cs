@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class ShadowTile : MonoBehaviour
 {
     public GameObject collider;
@@ -8,7 +8,13 @@ public class ShadowTile : MonoBehaviour
     {
         
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Player")){
+            Debug.Log("trigger");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
