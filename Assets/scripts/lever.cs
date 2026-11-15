@@ -3,17 +3,28 @@ using UnityEngine;
 
 public class lever : MonoBehaviour
 {
-    public float durationOfPress;
     public combinedTileManager[] combinedTiles;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("Hand"))
+        {
+            Change();
+        }
     }
-
-    // Update is called once per frame
-    void Update()
+    void Change()
     {
-        
+        for(int i = 0; i < combinedTiles.Length; i++)
+        {
+            if (combinedTiles[i].shadowTile.activeInHierarchy)
+            {
+                combinedTiles[i].shadowTile.SetActive(false);
+                combinedTiles[i].lightTile.SetActive(true);
+            }
+            else
+            {
+                combinedTiles[i].shadowTile.SetActive(true);
+                combinedTiles[i].lightTile.SetActive(false);
+            }
+        }
     }
 }
