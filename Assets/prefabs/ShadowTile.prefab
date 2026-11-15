@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4044667379217488184}
   - component: {fileID: 7042012492783376862}
   - component: {fileID: 7277480230827024264}
-  - component: {fileID: 7016272761212207803}
+  - component: {fileID: 7266728022258516414}
   m_Layer: 7
   m_Name: ShadowTile
   m_TagString: LightTile
@@ -115,7 +115,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &7016272761212207803
+--- !u!114 &7266728022258516414
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb30cfdc9ae93491e9dcc44d51158fae, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
+  m_EditorClassIdentifier: Assembly-CSharp::ShadowTile
   collider: {fileID: 1858980703321445047}
 --- !u!1 &1858980703321445047
 GameObject:
@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 4258175593415523226}
   - component: {fileID: 6525420605415906955}
   - component: {fileID: 2154869311193258675}
+  - component: {fileID: 4468980537470307642}
   m_Layer: 7
   m_Name: Collider
   m_TagString: ShadowTile
@@ -218,3 +219,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4468980537470307642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858980703321445047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04d23da8fedc78530a2947dcb2fd137c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::tileCollider

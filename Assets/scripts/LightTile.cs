@@ -9,13 +9,6 @@ public class LightTile : MonoBehaviour
     {
         
     }
-     private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Player")){
-            Debug.Log("trigger");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-    }
     // Update is called once per frame
     void Update()
     {

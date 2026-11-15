@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5472057796574016120}
   - component: {fileID: 2135413077118028817}
   - component: {fileID: 3660652014614643827}
+  - component: {fileID: 7134348570355290119}
   m_Layer: 7
   m_Name: Collider
   m_TagString: LightTile
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 1, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 19154591507980326}
@@ -90,6 +91,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7134348570355290119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2287391478547394339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04d23da8fedc78530a2947dcb2fd137c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &3130334322376510101
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +242,7 @@ GameObject:
   - component: {fileID: 5519819815271262074}
   - component: {fileID: 5864881187019293639}
   - component: {fileID: 2637824277671903466}
-  - component: {fileID: 1904826039723574145}
+  - component: {fileID: 2326724769462688778}
   m_Layer: 7
   m_Name: LightTile
   m_TagString: LightTile
@@ -333,7 +346,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1904826039723574145
+--- !u!114 &2326724769462688778
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
