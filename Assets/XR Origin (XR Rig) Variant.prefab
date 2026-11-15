@@ -1780,6 +1780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e54b40f50c1d9469796213040c737c45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  movementProviders: []
   changeButton: {fileID: -3599823989380923159, guid: b6d5c44ebe3244b7692e81ae8265eb22, type: 3}
   gracePeriodDuration: 2
   gracePeriodSlider: {fileID: 1551178362522597861}
@@ -1789,6 +1790,7 @@ MonoBehaviour:
   whitePaw2: {fileID: 0}
   blackPaw1: {fileID: 0}
   blackPaw2: {fileID: 0}
+  dedScreen: {fileID: 0}
 --- !u!1001 &6677640203757112239
 PrefabInstance:
   m_ObjectHideFlags: 0

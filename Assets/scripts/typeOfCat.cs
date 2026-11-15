@@ -7,10 +7,13 @@ public static class playerType
 {
     public static bool isLight;
     public static bool isGracePeriod;
+    public static bool ded;
+    public static Behaviour[] movementProviders;
 }
 
 public class typeOfCat : MonoBehaviour
 {
+    public Behaviour[] movementProviders;
     public InputActionReference changeButton;
     public int gracePeriodDuration = 2;
     public Slider gracePeriodSlider;
@@ -24,11 +27,13 @@ public class typeOfCat : MonoBehaviour
     public GameObject blackPaw1;
     public GameObject blackPaw2;
     private Coroutine shadowRoutine;
+    public GameObject dedScreen;
     void Start()
     {
         playerType.isLight = true;
         changeButton.action.Enable();
         changeButton.action.performed += onButtonPressed;
+        playerType.movementProviders = movementProviders;
     }
     private void onButtonPressed(InputAction.CallbackContext context){
         if(playerType.isGracePeriod == false){
@@ -94,6 +99,16 @@ public class typeOfCat : MonoBehaviour
                 blackPaw2.SetActive(true);
             }
             lastChanged = false;
+        }
+        if(playerType.ded == true)
+        {
+            Debug.Log("ded");
+            foreach(var provider in playerType.movementProviders)
+            {
+                provider.enabled = false;
+            }
+            dedScreen.SetActive(true);
+            playerType.ded = false;
         }
     }
 }
